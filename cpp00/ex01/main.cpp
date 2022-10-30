@@ -1,17 +1,10 @@
-// #include <iostream>
-// #include <string>
 #include "Phonebook.hpp"
 
 int main()
 {
     std::string input;
     Phonebook a;
-    // std::string input;
 
-    // while(std::getline(std::cin, input))
-    // {
-
-    // }
     while (1)
     {
         std::cout << "Input : ";
