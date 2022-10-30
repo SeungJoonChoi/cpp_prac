@@ -6,14 +6,14 @@
 #include <iomanip>
 #include "Contact.hpp"
 
-class Phonebook
+class PhoneBook
 {
 private:
     Contact contacts[8];
     std::string contents[5];
     int amount;
 public:
-    Phonebook();
+    PhoneBook();
     void addContent();
     void searchContent();
 };

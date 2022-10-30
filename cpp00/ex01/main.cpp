@@ -1,9 +1,9 @@
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int main()
 {
     std::string input;
-    Phonebook a;
+    PhoneBook a;
 
     while (1)
     {

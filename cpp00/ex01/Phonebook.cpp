@@ -1,6 +1,6 @@
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
-Phonebook::Phonebook()
+PhoneBook::PhoneBook()
 {
     this->contents[0] = "fist name";
         this->contents[1] = "last name";
@@ -12,7 +12,7 @@ Phonebook::Phonebook()
             this->contacts[i].setIdx(i);
 }
 
-void Phonebook::addContent(void)
+void PhoneBook::addContent(void)
 {
     std::string str;
 
@@ -26,7 +26,7 @@ void Phonebook::addContent(void)
         this->amount++;
 }
 
-void Phonebook::searchContent()
+void PhoneBook::searchContent()
     {
         int idx;
 
