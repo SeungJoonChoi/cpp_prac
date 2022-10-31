@@ -22,8 +22,7 @@ void PhoneBook::addContent(void)
         std::getline(std::cin, str);
         this->contacts[this->amount % 8].setInfo(i, str);
     }
-    if (this->amount < 8)
-        this->amount++;
+    this->amount++;
 }
 
 void PhoneBook::searchContent()
@@ -35,7 +34,7 @@ void PhoneBook::searchContent()
             std::cout << "Empty" << std::endl;
             return ;
         }
-        for(int i = 0; i < this->amount; i++)
+        for(int i = 0; i < this->amount && i < 8; i++)
         {
             std::cout << std::setw(10) << i << "|"; 
             this->contacts[i].display_idx();
@@ -44,7 +43,7 @@ void PhoneBook::searchContent()
         {
             std::cout << "Choose index : ";
             std::cin >> idx;
-            if (std::cin.fail() || idx < 0 || idx >= this->amount)
+            if (std::cin.fail() || idx < 0 || idx > 7 || idx >= this->amount)
             {
                 std::cin.clear();
                 std::cin.ignore(32767, '\n');
