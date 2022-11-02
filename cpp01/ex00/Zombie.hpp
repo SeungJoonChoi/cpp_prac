@@ -8,14 +8,9 @@ class Zombie
 private:
     std::string name;
 public:
-    Zombie(std::string str)
-    {
-        name = str;
-    }
-    void announce(void)
-    {
-        std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-    }
+    Zombie(std::string str);
+    ~Zombie();
+    void announce(void);
 };
 
 #endif

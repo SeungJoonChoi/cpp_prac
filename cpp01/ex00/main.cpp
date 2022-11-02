@@ -18,9 +18,9 @@ int main()
 {
     Zombie* zom;
 
-    zom = newZombie("tmdwns");
+    randomChump("Zom");
+    zom = newZombie("Bie");
     (*zom).announce();
-    randomChump("seunchoi");
     delete zom;
     return 0;
 }
