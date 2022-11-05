@@ -68,6 +68,9 @@
         "deque": "cpp",
         "fstream": "cpp",
         "stack": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "__memory": "cpp",
+        "memory_resource": "cpp",
+        "filesystem": "cpp"
     }
 }
