@@ -65,13 +65,15 @@ public:
     {
         return raw_bits >> 8;
     }
-    std::ostream& operator<<(std::ostream &out, Fixed &fixed)
-    {
-        out << (float)this->raw_bits / (float)(1 << 8);
-
-        return out;
-    }
 };
+
 const int Fixed::fractional_bit = 8;
+
+std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
+{
+    out << (float)fixed.getRawBits() / (float)(1 << 8);
+
+    return out;
+}
 
 #endif
