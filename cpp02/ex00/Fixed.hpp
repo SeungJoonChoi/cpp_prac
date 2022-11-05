@@ -7,7 +7,7 @@ class Fixed
 {
 private:
     int value;
-    static const int fractional_bit;
+    static const int f_bit = 8;
 public:
     Fixed()
     : value(0)
@@ -50,7 +50,5 @@ public:
         value = raw;
     }
 };
-
-const int Fixed::fractional_bit = 8;
 
 #endif

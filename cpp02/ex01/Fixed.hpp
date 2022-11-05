@@ -8,7 +8,7 @@ class Fixed
 {
 private:
     int raw_bits;
-    static const int fractional_bit;
+    static const int f_bit = 8;
 public:
     Fixed()
     : raw_bits(0)
@@ -17,13 +17,13 @@ public:
     }
 
     Fixed(const int n)
-    : raw_bits(n * (1 << 8))
+    : raw_bits(n * (1 << f_bit))
     {
         std::cout << "Int constructor called" << std::endl;
     }
 
     Fixed(const float f)
-    : raw_bits(roundf(f * (1 << 8)))
+    : raw_bits(roundf(f * (1 << f_bit)))
     {
         std::cout << "Float constructor called" << std::endl;
     }
@@ -63,16 +63,14 @@ public:
 
     float toFloat(void) const
     {
-        return (float)raw_bits / (float)(1 << 8);
+        return (float)raw_bits / (float)(1 << f_bit);
     }
 
     int toInt(void) const
     {
-        return raw_bits >> 8;
+        return raw_bits >> f_bit;
     }
 };
-
-const int Fixed::fractional_bit = 8;
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
 {
