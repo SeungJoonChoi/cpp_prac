@@ -56,6 +56,11 @@ public:
         return raw_bits;
     }
 
+    void setRawBits(int const raw)
+    {
+        raw_bits = raw;
+    }
+
     float toFloat(void) const
     {
         return (float)raw_bits / (float)(1 << 8);

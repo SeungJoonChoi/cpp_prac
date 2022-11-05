@@ -13,36 +13,29 @@ public:
     Fixed()
     : raw_bits(0)
     {
-        std::cout << "Default constructor called" << std::endl;
     }
 
-    Fixed(const int n)
-    : raw_bits(n * (1 << 8))
+    Fixed(const int i)
+    : raw_bits(i * (1 << 8))
     {
-        std::cout << "Int constructor called" << std::endl;
     }
 
     Fixed(const float f)
     : raw_bits(roundf(f * (1 << 8)))
     {
-        std::cout << "Float constructor called" << std::endl;
     }
 
     Fixed(const Fixed &fixed)
     {
-        std::cout << "Copy constructor called" << std::endl;
         *this = fixed;
     }
 
     ~Fixed()
     {
-        std::cout << "Destructor called" << std::endl;
     }
 
     Fixed& operator=(const Fixed& fixed)
     {
-        std::cout << "Copy assignment operator called" << std::endl;
-
         if(this == &fixed)
             return *this;
 
@@ -51,9 +44,34 @@ public:
         return *this;
     }
 
+    Fixed operator+(const Fixed &f2)
+    {
+        return this->toFloat() + f2.toFloat();
+    }
+
+    Fixed operator-(const Fixed &f2)
+    {
+        return this->toFloat() - f2.toFloat();
+    }
+
+    Fixed operator*(const Fixed &f2)
+    {
+        return this->toFloat() * f2.toFloat();
+    }
+
+    Fixed operator/(const Fixed &f2)
+    {
+        return this->toFloat() / f2.toFloat();
+    }
+
     int getRawBits(void) const
     {
         return raw_bits;
+    }
+
+    void setRawBits(int const raw)
+    {
+        raw_bits = raw;
     }
 
     float toFloat(void) const
@@ -67,6 +85,7 @@ public:
     }
 };
 
+//Input/Output stream
 std::ostream& operator<<(std::ostream &out, const Fixed &fixed)
 {
     out << (float)fixed.getRawBits() / (float)(1 << 8);

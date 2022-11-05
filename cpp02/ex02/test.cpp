@@ -4,10 +4,7 @@
 
 int main()
 {
-    int i = 0;
-
-    i = i << 8;
-    i += 1;
-    std::cout << (float)i / (float)(1 << 8) << std::endl;
+    std::cout << (Fixed(5.05f) + Fixed(2)).toFloat() << std::endl;
+    std::cout << (Fixed(5.05f) - Fixed(2)).toFloat() << std::endl;
     return 0;
 }
