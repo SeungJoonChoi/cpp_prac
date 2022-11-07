@@ -3,11 +3,11 @@
 int main()
 {
     std::string str;
-    std::string* stringPTR;
-    
-
     str = "HI THIS IS BRAIN";
+
+    std::string* stringPTR;
     stringPTR = &str;
+    
     std::string& stringREF = str;
 
     std::cout << &str << std::endl;

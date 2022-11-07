@@ -4,17 +4,30 @@
 
 int main(int argc, char *argv[])
 {
-    std::string filename = argv[1];
-    std::string s1 = argv[2];
-    std::string s2 = argv[3];
+    std::string filename;
+    std::string s1;
+    std::string s2;
     std::string str;
     std::stringstream buf;
     std::ifstream fin;
     std::ofstream fout;
 
-    (void)argc;
+    if (argc != 4)
+    {
+        std::cerr << "Invalid argument" << std::endl;
+        exit(1);   
+    }
+
+    filename = argv[1];
+    s1 = argv[2];
+    s2 = argv[3];
 
     fin.open(filename);
+    if (fin.fail())
+    {
+        std::cerr << "Can not open file" << std::endl;
+        exit(1);
+    }
     buf << fin.rdbuf();
     fin.close();
     str = buf.str();
@@ -33,6 +46,11 @@ int main(int argc, char *argv[])
     }
 
     fout.open(filename + ".replace");
+    if (fout.fail())
+    {
+        std::cerr << "Can not open file" << std::endl;
+        exit(1);
+    }
     fout << str;
 
     fout.close();

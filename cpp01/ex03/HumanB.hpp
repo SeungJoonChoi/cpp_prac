@@ -10,19 +10,9 @@ private:
     Weapon* weapon;
     std::string name;
 public:
-    HumanB(std::string str)
-    {
-        name = str;
-        weapon = NULL;
-    }
-    void setWeapon(Weapon& w)
-    {
-        weapon = &w;
-    }
-    void attack(void)
-    {
-        std::cout << name << " attacks with their " << weapon->getType() << std::endl;
-    }
+    HumanB(std::string str);
+    void setWeapon(Weapon& w);
+    void attack(void);
 };
 
 #endif
