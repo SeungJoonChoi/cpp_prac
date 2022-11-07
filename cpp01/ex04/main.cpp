@@ -1,16 +1,14 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
+#include "MyString.hpp"
+#include "Utils.hpp"
 
 int main(int argc, char *argv[])
 {
+    MyString a;
+    std::ifstream fin;
+    std::ofstream fout;
     std::string filename;
     std::string s1;
     std::string s2;
-    std::string str;
-    std::stringstream buf;
-    std::ifstream fin;
-    std::ofstream fout;
 
     if (argc != 4)
     {
@@ -22,36 +20,16 @@ int main(int argc, char *argv[])
     s1 = argv[2];
     s2 = argv[3];
 
-    fin.open(filename);
-    if (fin.fail())
-    {
-        std::cerr << "Can not open file" << std::endl;
-        exit(1);
-    }
-    buf << fin.rdbuf();
+    open_infile(fin, filename);
+
+    a.setString(infile_to_string(fin));
+
     fin.close();
-    str = buf.str();
 
-    size_t pos = 0;
-    while(1)
-    {
-        pos = str.find(s1);
-        if (pos == std::string::npos)
-            break;
-        else
-        {
-            str.erase(pos, s1.length());
-            str.insert(pos, s2);
-        }
-    }
+    a.replaceAll(s1, s2);
 
-    fout.open(filename + ".replace");
-    if (fout.fail())
-    {
-        std::cerr << "Can not open file" << std::endl;
-        exit(1);
-    }
-    fout << str;
+    open_outfile(fout, filename + ".replace");
+    fout << a.getString();
 
     fout.close();
     return 0;
