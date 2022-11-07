@@ -1,14 +1,13 @@
-#include "MyString.hpp"
-#include "Utils.hpp"
+#include "replace.hpp"
 
 int main(int argc, char *argv[])
 {
-    MyString a;
     std::ifstream fin;
     std::ofstream fout;
     std::string filename;
     std::string s1;
     std::string s2;
+    std::string string;
 
     if (argc != 4)
     {
@@ -22,14 +21,14 @@ int main(int argc, char *argv[])
 
     open_infile(fin, filename);
 
-    a.setString(infile_to_string(fin));
+    string = infile_to_string(fin);
 
     fin.close();
 
-    a.replaceAll(s1, s2);
+    replace(string, s1, s2);
 
     open_outfile(fout, filename + ".replace");
-    fout << a.getString();
+    fout << string;
 
     fout.close();
     return 0;

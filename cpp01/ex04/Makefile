@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 INCLUDE = -I.
 NAME = main
 
-SRCS = main.cpp MyString.cpp Utils.cpp
+SRCS = main.cpp replace.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 .cpp.o :
