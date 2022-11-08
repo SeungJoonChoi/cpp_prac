@@ -3,12 +3,18 @@
 ScavTrap::ScavTrap()
 {
     std::cout << "ScavTrap Default constructor called" << std::endl;
+    hit_points = 100;
+    energy_points = 50;
+    attack_damage = 20;
 }
 
 ScavTrap::ScavTrap(const std::string& name)
 : ClapTrap(name)
 {
     std::cout << "ScavTrap Parameterized constructor called" << std::endl;
+    hit_points = 100;
+    energy_points = 50;
+    attack_damage = 20;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &scavtrap)
