@@ -1,9 +1,9 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    ScavTrap A("A");
-    ScavTrap B("B");
+    FragTrap A("A");
+    FragTrap B("B");
     ClapTrap C("C");
 
     A.attack(C.getName());
@@ -22,8 +22,8 @@ int main()
     A.takeDamage(C.getAttackDamage());
     std::cout << std::endl;
 
-    A.guardGate();
-    B.guardGate();
+    A.highFivesGuys();
+    B.highFivesGuys();
     // C.guardGate();
 
     return 0;
