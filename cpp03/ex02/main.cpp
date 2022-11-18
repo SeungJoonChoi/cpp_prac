@@ -18,13 +18,8 @@ int main()
     B.beRepaired(10);
     std::cout << std::endl;
 
-    C.attack(A.getName());
-    A.takeDamage(C.getAttackDamage());
-    std::cout << std::endl;
-
     A.highFivesGuys();
     B.highFivesGuys();
-    // C.guardGate();
 
     return 0;
 }

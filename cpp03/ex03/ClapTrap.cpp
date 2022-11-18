@@ -54,8 +54,10 @@ unsigned int ClapTrap::getAttackDamage(void)
 
 void ClapTrap::attack(const std::string& target)
 {
-    if(energy_points <= 0)
-        std::cout << "0 energy point" << std::endl;
+    if(hit_points <= 0)
+        std::cout << name << " is dead" << std::endl;
+    else if(energy_points <= 0)
+        std::cout << name << " has no energy point" << std::endl;
     else
     {
         energy_points--;
@@ -75,8 +77,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if(energy_points <= 0)
-        std::cout << "0 energy point" << std::endl;
+    if(hit_points <= 0)
+        std::cout << name << " is dead" << std::endl;
+    else if(energy_points <= 0)
+        std::cout << name << " has no energy point" << std::endl;
     else
     {
         energy_points--;

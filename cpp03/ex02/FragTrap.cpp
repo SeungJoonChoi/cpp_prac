@@ -49,8 +49,10 @@ FragTrap& FragTrap::operator=(const FragTrap& fragtrap)
 
 void FragTrap::attack(const std::string& target)
 {
-    if(energy_points <= 0)
-        std::cout << "0 energy point" << std::endl;
+    if(hit_points <= 0)
+        std::cout << name << " is dead" << std::endl;
+    else if(energy_points <= 0)
+        std::cout << name << " has no energy point" << std::endl;
     else
     {
         energy_points--;
@@ -62,5 +64,10 @@ void FragTrap::attack(const std::string& target)
 
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << "FragTrap " << name << " high five!" << std::endl;
+    if(hit_points <= 0)
+        std::cout << name << " is dead" << std::endl;
+    else
+    {
+        std::cout << "FragTrap " << name << " high five!" << std::endl;
+    }
 }

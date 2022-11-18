@@ -4,7 +4,8 @@ DiamondTrap::DiamondTrap()
 : ClapTrap("unknown_clap_name")
 {
     std::cout << "DiamondTrap Default constructor called" << std::endl;
-    energy_points = 50;
+    hit_points = 100;
+    attack_damage = 30;
 }
 
 DiamondTrap::DiamondTrap(const std::string & name_in)
@@ -12,7 +13,8 @@ DiamondTrap::DiamondTrap(const std::string & name_in)
 {
     std::cout << "DiamondTrap Parameterized constructor called" << std::endl;
     name = name_in;
-    energy_points = 50;
+    hit_points = 100;
+    attack_damage = 30;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap & diamondtrap)
