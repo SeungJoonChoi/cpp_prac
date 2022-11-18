@@ -3,6 +3,8 @@
 
 int main()
 {
+    // Animal animal;
+
     {
         std::cout << "@@@@@Polymorphism Test@@@@@" << std::endl;
         std::cout << std::endl;
