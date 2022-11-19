@@ -8,7 +8,7 @@ class Bureaucrat
 {
 private:
     const std::string name;
-    unsigned int grade;
+    int grade;
 public:
     Bureaucrat();
     Bureaucrat(const std::string name_in, const unsigned int grade_in);
@@ -16,20 +16,21 @@ public:
     ~Bureaucrat();
     Bureaucrat& operator=(const Bureaucrat& b);
 
-    class GradeTooHighException : std::exception
+    class GradeTooHighException : public std::exception
     {
     public:
-        const char* what() const noexcept override;
-        //noexcept C++11 ???
+        const char* what() const throw();
+        //noexcept C++11
+        //override C++11
     };
-    class GradeTooLowException : std::exception
+    class GradeTooLowException : public std::exception
     {
     public:
-        const char * what() const noexcept override;
+        const char* what() const throw();
     };
 
-    std::string& getName(void) const;
-    unsigned int& getGrade(void) const;
+    const std::string& getName(void) const;
+    const int& getGrade(void) const;
     void increaseGrade(void);
     void decreaseGrade(void);
 };
