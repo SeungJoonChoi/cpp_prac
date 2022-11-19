@@ -3,8 +3,13 @@
 
 int main()
 {
-    // Animal animal;
-
+    {
+        const Animal* j = new Dog();
+        const Animal* i = new Cat();
+        delete j;
+        delete i;
+    }
+    std::cout << std::endl;
     {
         std::cout << "@@@@@Polymorphism Test@@@@@" << std::endl;
         std::cout << std::endl;
