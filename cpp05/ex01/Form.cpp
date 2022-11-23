@@ -10,6 +10,10 @@ Form::Form(const std::string& name_in, const int& signGrade_in, const int& execu
 : _name(name_in), _signed(false), _signGrade(signGrade_in), _executeGrade(executeGrade_in)
 {
     std::cout << "Form Parameterized constructor called" << std::endl;
+    if(_signGrade < 1 || _executeGrade < 1)
+        throw GradeTooHighException();
+    else if (_signGrade > 150 || _executeGrade > 150)
+        throw GradeTooLowException();
 }
 
 Form::Form(const Form& f)
@@ -81,5 +85,10 @@ void Form::beSigned(const Bureaucrat& b)
 
 std::ostream& operator<<(std::ostream& out, const Form& f)
 {
-    //todo
+    out << "Name : " << f.getName() \
+    << std::boolalpha << ", Signed : " << f.getSigned() \
+    << ", Sign Grade : " << f.getSignGrade() \
+    << ", Execute Grade : " << f.getExecuteGrade();
+
+    return out;
 }

@@ -5,6 +5,8 @@
 #include <exception>
 #include "Form.hpp"
 
+class Form;
+
 class Bureaucrat
 {
 private:
@@ -35,7 +37,7 @@ public:
     void increaseGrade(void);
     void decreaseGrade(void);
 
-    void signForm(const Form& f);
+    void signForm(const Form& f) const;
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);
