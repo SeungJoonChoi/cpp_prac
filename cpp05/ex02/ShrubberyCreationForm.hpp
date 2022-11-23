@@ -11,6 +11,7 @@ public:
     ShrubberyCreationForm(const std::string& name_in);
     ShrubberyCreationForm(const ShrubberyCreationForm& s);
     virtual ~ShrubberyCreationForm();
+    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& s);
 
     class FileOpenFailException : public std::exception
     {

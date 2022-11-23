@@ -20,7 +20,19 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& s)
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCreationForm destructor called" << std::endl;
+    std::cout << "ShrubberyCreationForm Destructor called" << std::endl;
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& s)
+{
+    std::cout << "ShrubberyCreationForm Assignment called" << std::endl;
+    
+    if(this == &s)
+        return *this;
+    
+    Form::operator=(s);
+    
+    return *this;
 }
 
 const char* ShrubberyCreationForm::FileOpenFailException::what() const throw()
