@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -33,6 +34,8 @@ public:
     const int& getGrade(void) const;
     void increaseGrade(void);
     void decreaseGrade(void);
+
+    void signForm(const Form& f);
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);

@@ -71,6 +71,7 @@
         "variant": "cpp",
         "__memory": "cpp",
         "memory_resource": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "__cxx_version": "cpp"
     }
 }
