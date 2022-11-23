@@ -1,13 +1,14 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
     try
     {
-        RobotomyRequestForm f("home");
+        PresidentialPardonForm f("home");
         std::cout << f << std::endl;
-        Bureaucrat b("seunchoi", 40);
+        Bureaucrat b("seunchoi", 2);
         b.signForm(f);
         b.executeForm(f);
     }
