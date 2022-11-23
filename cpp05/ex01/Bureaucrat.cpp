@@ -80,11 +80,11 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
     return out;
 }
 
-void Bureaucrat::signForm(const Form& f) const
+void Bureaucrat::signForm(Form& f) const
 {
     try
     {
-        const_cast<Form*>(&f)->beSigned(*this);
+        f.beSigned(*this);
         std::cout << _name << " signed " << "Form[ " << f << " ]" << std::endl;
     }
     catch(std::exception& e)

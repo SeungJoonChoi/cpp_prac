@@ -2,21 +2,19 @@
 
 int main()
 {
-    // try
-    // {
-    //     Bureaucrat a("seunchoi", 1);
-    //     a.increaseGrade();
-    //     std::cout << a << std::endl;
-    // }
-    // catch(std::exception& e)
-    // {
-    //     std::cerr << e.what() << '\n';
-    // }
+    try
+    {
+        Form f("Form1", 100, 100);
+        std::cout << f << std::endl;
+        Bureaucrat b("seunchoi", 10);
+        b.signForm(f);
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    
+    
 
-    Form a("Form1", 100, 100);
-    Bureaucrat b("seunchoi", 130);
-    b.signForm(a);
-    
-    
     return 0;
 }
