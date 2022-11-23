@@ -6,7 +6,7 @@ int main()
     {
         ShrubberyCreationForm f("home");
         std::cout << f << std::endl;
-        Bureaucrat b("seunchoi", 140);
+        Bureaucrat b("seunchoi", 100);
         b.signForm(f);
         b.executeForm(f);
     }

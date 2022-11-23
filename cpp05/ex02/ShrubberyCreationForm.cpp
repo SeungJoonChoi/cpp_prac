@@ -23,10 +23,17 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
     std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
+const char* ShrubberyCreationForm::FileOpenFailException::what() const throw()
+{
+    return "Failed To Open File";
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     executable(executor);
     std::ofstream fout(getName() + "_shrubbery");
+    if(fout.fail())
+        throw FileOpenFailException();
 
     fout << "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n\
 ⠀⠀⠀⠀⠀⠀⠀⠀⢰⣆⠀⢿⢢⡀⠸⣱⡀⢀⢤⡶⡄⠀⠀⠀⠀⠀⠀⠀⠀\n\

@@ -12,6 +12,11 @@ public:
     ShrubberyCreationForm(const ShrubberyCreationForm& s);
     virtual ~ShrubberyCreationForm();
 
+    class FileOpenFailException : public std::exception
+    {
+    public:
+        const char* what() const throw();
+    };
     void execute(Bureaucrat const & executor) const;
 };
 
