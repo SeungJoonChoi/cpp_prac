@@ -7,6 +7,7 @@ Intern::Intern()
 
 Intern::Intern(const Intern& i)
 {
+    static_cast<void>(i);
     std::cout << "Intern Copy constructor called" << std::endl;
 }
 
@@ -18,7 +19,7 @@ Intern::~Intern()
 Intern& Intern::operator=(const Intern& i)
 {
     std::cout << "Intern Assignment called" << std::endl;
-    // static_cast<void>(i);
+    static_cast<void>(i);
     return *this;
 }
 
