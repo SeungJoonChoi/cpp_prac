@@ -20,8 +20,6 @@ public:
     {
     public:
         const char* what() const throw();
-        //noexcept C++11
-        //override C++11
     };
     class GradeTooLowException : public std::exception
     {

@@ -33,7 +33,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
     if(this == &b)
         return *this;
 
-    //name = b.name - casting ??
     *(const_cast<std::string*>(&_name)) = b._name;
     _grade = b._grade;
     return *this;

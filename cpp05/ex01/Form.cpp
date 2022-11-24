@@ -18,7 +18,6 @@ Form::Form(const std::string& name_in, const int& signGrade_in, const int& execG
 
 Form::Form(const Form& f)
 : _name("unknown"), _signed(false), _signGrade(1), _execGrade(1)
-// : Form(f._name, f._signGrade, f._execGrade)
 {
     std::cout << "Form Copy constructor called" << std::endl;
     *(const_cast<std::string*>(&_name)) = f._name;
