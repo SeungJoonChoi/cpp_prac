@@ -2,14 +2,14 @@
 
 int main()
 {
-    Data d("John", 20, 180, 75);
-    uintptr_t p;
+    Data data("John", 20, 180, 75);
+    uintptr_t ptr;
 
-    p = serialize(&d);
-    printData(p);
+    ptr = serialize(&data);
+    deserialize(ptr)->print();
 
-    std::cout << &d << std::endl;
-    std::cout << std::hex << p << std::endl;
+    std::cout << &data << std::endl;
+    std::cout << std::hex << ptr << std::endl;
 
     return 0;
 }

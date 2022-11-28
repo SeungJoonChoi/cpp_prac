@@ -49,11 +49,3 @@ Data* deserialize(uintptr_t raw)
 {
     return reinterpret_cast<Data*>(raw);
 }
-
-void printData(uintptr_t raw)
-{
-    Data* data;
-    data = deserialize(raw);
-
-    data->print();
-}
