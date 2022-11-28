@@ -1,9 +1,9 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 INCLUDE = -I.
-NAME = convert
+NAME = main
 
-SRCS = main.cpp Convert.cpp
+SRCS = main.cpp Data.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 .cpp.o :

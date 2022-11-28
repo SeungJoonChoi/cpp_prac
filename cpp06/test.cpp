@@ -1,34 +1,20 @@
+
+#include <cstdint>
 #include <iostream>
-#include <sstream>
 
-int main(int argc, char** argv)
+int main(void)
 {
-    double d;
+	int				    n1;
+	unsigned int	n2;
+	uintptr_t		  p;
+    // unsigned long p;
 
-    char *ptr = NULL;
-
-    std::string input = argv[1];
-
-    // std::stringstream ss;
-
-    // ss << input;
-    // ss >> d;
-
-    d = std::strtod(input.c_str(), &ptr);
-
-    // std::cout << ptr << std::endl;
-    std::cout << d << std::endl;
-    // std::cout << input << std::endl;
-
-    // try
-    // {
-    //     throw std::bad_alloc();
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << std::endl;
-    // }
-    
-
-    return 0;
+	p = reinterpret_cast<uintptr_t>(&n1); // p = &n1 -> error
+    // p = &n1;
+	std::cout << &n1 << std::endl;
+	std::cout << std::hex << p << std::endl;
+	p = reinterpret_cast<uintptr_t>(&n2); // p = &n2 -> error
+	std::cout << &n2 << std::endl;
+	std::cout << std::hex << p << std::endl;
+	return (0);
 }

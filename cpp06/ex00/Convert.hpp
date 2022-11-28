@@ -7,35 +7,6 @@
 #include <iomanip>
 #include <limits>
 
-// class Convert
-// {
-// private:
-//     std::string _input;
-//     // char _c;
-//     // int _i;
-//     // float _f;
-//     double _d;
-
-//     // char toChar();
-//     // int toInt();
-//     // float toFloat();
-//     double toDouble(char **end);
-// public:
-//     // Convert();
-//     Convert(const std::string& input_in);
-//     // Convert(const Covert& c);
-//     // ~Convert();
-//     // Convert& operator=(const Convert& c);
-
-//     class InvalidInputException : public std::exception
-//     {
-//     public:
-//         const char* what() const throw();
-//     };
-
-//     void print();
-// };
-
 class Convert
 {
 private:
@@ -43,11 +14,11 @@ private:
     double _value;
 
 public:
-    // Convert();
+    Convert();
     Convert(const std::string& input_in);
-    // Convert(const Covert& c);
-    // ~Convert();
-    // Convert& operator=(const Convert& c);
+    Convert(const Convert& c);
+    ~Convert();
+    Convert& operator=(const Convert& c);
 
     class InvalidInputException : public std::exception
     {
