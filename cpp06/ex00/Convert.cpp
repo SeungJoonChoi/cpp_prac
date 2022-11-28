@@ -48,8 +48,8 @@ void Convert::print()
             std::cout << "char: " << toChar() << std::endl;
         std::cout << "int: " << toInt() << std::endl;
     }
-    std::cout << std::showpos << std::numeric_limits<T>::digits10 << "float: " << toFloat() << "f" << std::endl;
-    std::cout << "double: " << _value << std::endl;
+    std::cout << std::showpos << std::setprecision(std::numeric_limits<float>::digits10) << "float: " << toFloat() << "f" << std::endl;
+    std::cout << std::setprecision(std::numeric_limits<double>::digits10) << "double: " << toDouble() << std::endl;
 }
 
 const char* Convert::InvalidInputException::what() const throw()
