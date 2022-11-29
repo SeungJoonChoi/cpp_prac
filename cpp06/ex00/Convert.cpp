@@ -10,12 +10,17 @@ Convert::Convert(const std::string& input_in)
 {
     char *end;
 
-    _value = std::strtod(_input.c_str(), &end);
+    if(input_in.length() == 1 && std::isprint(input_in[0]))
+        _value = static_cast<double>(input_in[0]);
+    else
+    {
+        _value = std::strtod(_input.c_str(), &end);
 
-    if(_value == 0.0 && _input[0] != '+' && _input[0] != '-' && !std::isdigit(_input[0]))
-        throw InvalidInputException();
-    if(end[0] != 'f' && end[0] != '\0')
-        throw InvalidInputException();
+        if(_value == 0.0 && _input[0] != '+' && _input[0] != '-' && !std::isdigit(_input[0]))
+            throw InvalidInputException();
+        if(end[0] != 'f' && end[0] != '\0')
+            throw InvalidInputException();
+    }
 }
 
 Convert::Convert(const Convert& c)
@@ -68,7 +73,7 @@ void Convert::print()
     }
     else
     {
-        if(toChar() < 32 || toChar() > 126)
+        if(!std::isprint(toChar()))
             std::cout << "char: Non displayable" << std::endl;
         else
             std::cout << "char: " << toChar() << std::endl;
