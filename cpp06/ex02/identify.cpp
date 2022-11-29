@@ -26,9 +26,9 @@ Base * generate(void)
 
 void identify(Base* p)
 {
-    if(dynamic_cast<A*>(p) != nullptr)
+    if(dynamic_cast<A*>(p) != NULL)
         std::cout << "A" << std::endl;
-    else if(dynamic_cast<B*>(p) != nullptr)
+    else if(dynamic_cast<B*>(p) != NULL)
         std::cout << "B" << std::endl;
     else
         std::cout << "C" << std::endl;
