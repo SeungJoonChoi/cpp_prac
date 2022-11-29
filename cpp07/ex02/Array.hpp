@@ -29,60 +29,81 @@ public:
     };
 
     Array()
-    : _arr(nullptr), _size(0)
+    : _arr(NULL), _size(0)
     {
     }
 
-    Array(unsigned int n) //prevent alloc fail - exit()
-    : _arr(nullptr), _size(n)
+    Array(unsigned int n)
+    : _arr(NULL), _size(n)
     {
         _arr = new T[_size];
-        if(_arr == nullptr)
+        if(_arr == NULL)
             throw AllocFailException();
     }
 
     Array(const Array& a)
-    : _arr(nullptr), _size(a._size)
+    : _arr(NULL), _size(a._size)
     {
-        if(a._arr != nullptr)
+        if(a._arr != NULL)
         {
             _arr = new T[_size];
-            if(_arr == nullptr)
+            if(_arr == NULL)
                 throw AllocFailException();
-            for(int i = 0; i < _size; ++i)
+
+            for(int i = 0; i < static_cast<int>(_size); ++i)
                 _arr[i] = a._arr[i];
         }
     }
 
-    //////////////////////
-    ~Array();
+    ~Array()
+    {
+        if(_arr != NULL)
+            delete[] _arr;
+    }
 
     Array& operator=(const Array& a)
     {
         if(this == &a)
             return *this;
         
-        if(_arr != nullptr)
+        if(a._arr != NULL)
         {
-            delete[] _arr;
-            _arr = nullptr;
-            _size = 0;
-        }
+            if(_arr != NULL)
+            {
+                delete[] _arr;
+                _arr = NULL;
+                _size = 0;
+            }
 
-        if(a._arr != nullptr)
-        {
             _size = a._size;
 
             _arr = new T[_size];
-            if(_arr == nullptr)
+            if(_arr == NULL)
                 throw AllocFailException();
 
-            /////////////
+            for(int i = 0; i < static_cast<int>(_size); ++i)
+                _arr[i] = a._arr[i];
         }
     }
 
-    T& operator[](const int index); // throw exception
-    size_t size() const;
+    T& operator[](const int index)
+    {
+        if(index < 0 || index >= static_cast<int>(_size))
+            throw OutRangeException();
+        return _arr[index]; 
+    }
+
+    const T& operator[](const int index) const
+    {
+        if(index < 0 || index >= static_cast<int>(_size))
+            throw OutRangeException();
+        return _arr[index];
+    }
+
+    size_t size() const
+    {
+        return _size;
+    }
 };
 
 #endif

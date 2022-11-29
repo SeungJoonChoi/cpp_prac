@@ -1,32 +1,42 @@
 #include <iostream>
 #include <Array.hpp>
 
-#define MAX_VAL 750
+#define MAX_VAL 100
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
         numbers[i] = value;
-        mirror[i] = value;
     }
-    //SCOPE
     {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
+        const Array<int> tmp = numbers;
+        const Array<int> test(tmp);
+
+        std::cout << numbers[10] << std::endl;
+        std::cout << tmp[10] << std::endl;
+        std::cout << test[10] << std::endl;
+
+        for (int i = 0; i < MAX_VAL; i++)
+        {
+            if (test[i] != numbers[i])
+            {
+                std::cerr << "didn't save the same value!!" << std::endl;
+                return 1;
+            }
+        }
+        std::cout << "same value!!" << std::endl;
+
+        //subscript operator can not modify const value
+        //tmp[10] = 10;
+        //test[10] = 10;
+
+        numbers[10] = 10;
+        std::cout << "numbers[10] : " << numbers[10] << std::endl;
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
-    }
     try
     {
         numbers[-2] = 0;
@@ -44,10 +54,5 @@ int main(int, char**)
         std::cerr << e.what() << '\n';
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
-    delete [] mirror;//
     return 0;
 }
