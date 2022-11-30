@@ -72,6 +72,7 @@
         "__memory": "cpp",
         "memory_resource": "cpp",
         "filesystem": "cpp",
-        "__cxx_version": "cpp"
+        "__cxx_version": "cpp",
+        "numeric": "cpp"
     }
 }
