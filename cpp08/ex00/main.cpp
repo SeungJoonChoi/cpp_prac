@@ -10,16 +10,21 @@ int main()
 
     std::vector<int>::iterator itr = easyfind(arr, 42);
 
-    std::cout << "*itr : " << *itr << std::endl;
-
-    std::cout << "@@@@@ Print until end @@@@@" << std::endl;
-    for(int i = 0; itr + i != arr.end(); ++i)
+    if(itr == arr.end())
+        std::cout << "Can not find value" << std::endl;
+    else
     {
-        std::cout << itr[i] << "\t";
-        if(i % 5 == 4)
-            std::cout << std::endl;
+        std::cout << "*itr : " << *itr << std::endl;
+
+        std::cout << "@@@@@ Print until end @@@@@" << std::endl;
+        for(int i = 0; itr + i != arr.end(); ++i)
+        {
+            std::cout << itr[i] << "\t";
+            if(i % 5 == 4)
+                std::cout << std::endl;
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
 
     return 0;
 }
