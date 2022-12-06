@@ -3,7 +3,7 @@
 
 int main()
 {
-    std::srand(std::time(NULL));
+    std::srand(static_cast<unsigned int>(std::time(NULL)));
 
     try
     {
@@ -17,8 +17,11 @@ int main()
         size_t i;
         for(i = 0; i < 10000; ++i)
         {
-            if(sp.getV()[i] != v[i])
+            if(sp[i] != v[i])
+            {
                 std::cout << "Not same!!!" << std::endl;
+                break;
+            }
         }
         if(i == v.size())
             std::cout << "It's same ^^!" << std::endl;
@@ -29,8 +32,8 @@ int main()
         // sp.addNumber(9);
         // sp.addNumber(11);
 
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
+        std::cout << "shortestSpan\t: " << sp.shortestSpan() << std::endl;
+        std::cout << "longestSpan\t: " << sp.longestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {

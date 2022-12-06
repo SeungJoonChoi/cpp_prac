@@ -38,9 +38,23 @@ const char* Span::NumberElementException::what() const throw()
     return "Invalid Number of Elements";
 }
 
-std::vector<int>& Span::getV(void)
+const char* Span::OutRangeException::what() const throw()
 {
-    return _v;
+    return "Index Out of Range";
+}
+
+int& Span::operator[](const int index)
+{
+    if(index < 0 || index >= static_cast<int>(_v.size()))
+        throw OutRangeException();
+    return _v[index]; 
+}
+
+const int& Span::operator[](const int index) const
+{
+    if(index < 0 || index >= static_cast<int>(_v.size()))
+        throw OutRangeException();
+    return _v[index];
 }
 
 void Span::addNumber(int n)

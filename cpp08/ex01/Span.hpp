@@ -29,7 +29,14 @@ public:
         const char* what() const throw();
     };
 
-    std::vector<int>& getV(void);
+    class OutRangeException : public std::exception
+    {
+    public:
+        const char* what() const throw();
+    };
+
+    int& operator[](const int index);
+    const int& operator[](const int index) const;
     void addNumber(int n);
     int shortestSpan();
     int longestSpan();
