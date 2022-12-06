@@ -33,7 +33,7 @@ int main(int, char**)
         //tmp[10] = 10;
         //test[10] = 10;
 
-        numbers[10] = 10;
+        numbers[10] = 42;
         std::cout << "numbers[10] : " << numbers[10] << std::endl;
     }
 
