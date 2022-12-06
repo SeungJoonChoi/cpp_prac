@@ -5,7 +5,7 @@
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
-    srand(time(NULL));
+    srand(static_cast<unsigned int>(time(NULL)));
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();

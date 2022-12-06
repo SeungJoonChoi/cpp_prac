@@ -84,6 +84,7 @@ public:
             for(int i = 0; i < static_cast<int>(_size); ++i)
                 _arr[i] = a._arr[i];
         }
+        return *this;
     }
 
     T& operator[](const int index)
