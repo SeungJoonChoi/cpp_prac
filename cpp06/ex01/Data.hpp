@@ -2,7 +2,6 @@
 #define DATA_HPP
 
 #include <iostream>
-#include <cstdint>
 
 struct Data
 {
