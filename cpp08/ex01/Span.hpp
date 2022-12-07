@@ -42,7 +42,7 @@ public:
     int longestSpan();
 
     template<typename T>
-    void addRange(T first, T last)
+    void addIter(T first, T last)
     {
         if(std::distance(first, last) > static_cast<long>(_v.capacity() - _v.size()))
             throw FullSizeException();

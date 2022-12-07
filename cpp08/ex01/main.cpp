@@ -12,7 +12,7 @@ int main()
         std::vector<int> v;
         for(int i = 0; i < 10000; ++i)
             v.push_back(std::rand());
-        sp.addRange(v.begin(), v.end());
+        sp.addIter(v.begin(), v.end());
 
         size_t i;
         for(i = 0; i < 10000; ++i)
