@@ -10,4 +10,13 @@ void iter(T* arr, int size, void(*func_ptr)(T&))
     }
 }
 
+template<typename T>
+void iter(T* arr, int size, void(*func_ptr)(T const &))
+{
+    for(int i = 0; i < size; ++i)
+    {
+        func_ptr(arr[i]);
+    }
+}
+
 #endif

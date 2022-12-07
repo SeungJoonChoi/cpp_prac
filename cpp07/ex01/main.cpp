@@ -11,7 +11,7 @@ void my_tolower(char& c)
     c = std::tolower(c);
 }
 
-void my_putchar(char& c)
+void my_putchar(char const & c)
 {
     std::cout << c;
 }
